@@ -1,0 +1,110 @@
+# Sveltia CMS — public/admin/config.yml
+# Backend: GitHub via sveltia-cms-auth Worker on Cloudflare.
+# TODO(Leo): replace repo, branch and base_url before first login.
+
+backend:
+  name: github
+  repo: humanerds/marina-moura # TODO
+  branch: main
+  base_url: https://sveltia-cms-auth.SUBDOMAIN.workers.dev # TODO
+
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: https://marinamoura.com # TODO
+locale: pt-BR
+
+collections:
+  - name: site
+    label: Conteúdo do Site
+    files:
+      - name: profile
+        label: Perfil (topo da página)
+        file: src/content/profile.json
+        fields:
+          - { name: firstName, label: Nome (serifado), widget: string }
+          - { name: lastName, label: Sobrenome (manuscrito), widget: string }
+          - { name: monogram, label: Monograma (ex. M/M), widget: string }
+          - { name: keywords, label: Palavras-chave (ex. BASTIDORES · CONTEÚDO · EVENTOS), widget: string }
+          - { name: bio, label: Frase de apresentação, widget: text }
+          - { name: scrollHint, label: Frase manuscrita (ex. Escolha por onde começar), widget: string }
+          - { name: photo, label: Foto principal, widget: image }
+          - { name: photoAlt, label: Descrição da foto (acessibilidade), widget: string }
+
+      - name: social
+        label: Redes (barra do topo)
+        file: src/content/social.json
+        fields:
+          - name: items
+            label: Links
+            widget: list
+            max: 5
+            fields:
+              - { name: icon, label: Ícone, widget: select,
+                  options: [instagram, tiktok, linkedin, whatsapp, mail] }
+              - { name: label, label: Nome (acessibilidade), widget: string }
+              - { name: url, label: Link, widget: string }
+
+      - name: services
+        label: Como posso te ajudar
+        file: src/content/services.json
+        fields:
+          - name: items
+            label: Serviços
+            widget: list
+            fields:
+              - { name: icon, label: Ícone, widget: select,
+                  options: [video, smartphone, ticket, handshake, lightbulb] }
+              - { name: title, label: Título, widget: string }
+              - { name: description, label: Descrição, widget: text }
+              - { name: url, label: Link do card, widget: string }
+
+      - name: about
+        label: Um pouco sobre mim
+        file: src/content/about.json
+        fields:
+          - { name: heading, label: Título manuscrito, widget: string, default: um pouco sobre mim }
+          - { name: photo, label: Foto, widget: image }
+          - { name: photoAlt, label: Descrição da foto, widget: string }
+          - name: bullets
+            label: Itens da lista
+            widget: list
+            field: { name: text, label: Texto, widget: string }
+          - { name: sideNote, label: Texto da coluna direita, widget: text }
+
+      - name: connect
+        label: Vamos nos conectar
+        file: src/content/connect.json
+        fields:
+          - name: items
+            label: Cards
+            widget: list
+            max: 6
+            fields:
+              - { name: icon, label: Ícone, widget: select,
+                  options: [instagram, tiktok, folder, whatsapp, mail, linkedin] }
+              - { name: label, label: Rótulo, widget: string }
+              - { name: url, label: Link, widget: string }
+
+      - name: materials
+        label: Materiais gratuitos
+        file: src/content/materials.json
+        fields:
+          - name: items
+            label: Materiais
+            widget: list
+            max: 6
+            fields:
+              - { name: image, label: Imagem do card, widget: image }
+              - { name: imageAlt, label: Descrição da imagem, widget: string }
+              - { name: title, label: Título (negrito), widget: string }
+              - { name: subtitle, label: Subtítulo, widget: string }
+              - { name: file, label: Arquivo (PDF) ou link, widget: file }
+
+      - name: cta
+        label: Chamada final
+        file: src/content/cta.json
+        fields:
+          - { name: text, label: Frase manuscrita, widget: string, default: Vamos criar algo incrível juntos? }
+          - { name: buttonLabel, label: Texto do botão, widget: string, default: VAMOS CONVERSAR }
+          - { name: buttonUrl, label: Link do botão (WhatsApp), widget: string }
