@@ -31,6 +31,8 @@ const iconWhitelist = [
   // UI decoration tier (not CMS-selectable) — see Icon.astro.
   'chevron-down',
   'chevron-right',
+  'check',
+  'heart',
 ];
 ---
 
@@ -87,6 +89,7 @@ const iconWhitelist = [
 
     <section>
       <h2>services.json</h2>
+      <p>sectionLabel: {services.sectionLabel}</p>
       <ol>
         {
           services.items.map((it) => (
@@ -115,6 +118,7 @@ const iconWhitelist = [
 
     <section>
       <h2>connect.json</h2>
+      <p>sectionLabel: {connect.sectionLabel}</p>
       <ol>
         {
           connect.items.map((it) => (
@@ -128,6 +132,7 @@ const iconWhitelist = [
 
     <section>
       <h2>materials.json</h2>
+      <p>sectionLabel: {materials.sectionLabel}</p>
       <ol>
         {
           materials.items.map((it) => (
