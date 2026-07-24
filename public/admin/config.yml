@@ -102,7 +102,9 @@ collections:
               - { name: imageAlt, label: Descrição da imagem, widget: string }
               - { name: title, label: Título (negrito), widget: string }
               - { name: subtitle, label: Subtítulo, widget: string }
-              - { name: file, label: Arquivo (PDF) ou link, widget: file }
+              # Field-level override: PDFs land in public/materials and render as /materials/<name>.pdf
+              - { name: file, label: Arquivo (PDF) ou link, widget: file,
+                  media_folder: /public/materials, public_folder: /materials }
 
       - name: cta
         label: Chamada final
