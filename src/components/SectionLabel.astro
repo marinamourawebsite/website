@@ -1,0 +1,15 @@
+---
+// SectionLabel — the "· LABEL ·" pattern (SPEC §2 visual rules).
+// Uppercase, small, letterspaced sans; flanking dots rendered in `sage`.
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<p class="flex items-center justify-center gap-2 text-muted">
+  <span class="text-sage" aria-hidden="true">·</span>
+  <span class="text-xs font-medium uppercase tracking-[0.25em]">{label}</span>
+  <span class="text-sage" aria-hidden="true">·</span>
+</p>

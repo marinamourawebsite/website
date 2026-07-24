@@ -6,6 +6,7 @@
 import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import SectionLabel from '../components/SectionLabel.astro';
 
 const profile = (await getEntry('profile', 'data'))!.data;
 const social = (await getEntry('social', 'data'))!.data;
@@ -27,6 +28,9 @@ const iconWhitelist = [
   'handshake',
   'lightbulb',
   'folder',
+  // UI decoration tier (not CMS-selectable) — see Icon.astro.
+  'chevron-down',
+  'chevron-right',
 ];
 ---
 
@@ -34,6 +38,11 @@ const iconWhitelist = [
   <main style="max-width: 800px; margin: 0 auto; padding: 2rem; font-family: monospace;">
     <h1>DEBUG — content layer</h1>
     <p>Temporary Phase 1 verification page. Deleted in Phase 2c.</p>
+
+    <section>
+      <h2>SectionLabel.astro</h2>
+      <SectionLabel label="COMO POSSO TE AJUDAR" />
+    </section>
 
     <section>
       <h2>Icon whitelist ({iconWhitelist.length})</h2>
