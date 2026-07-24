@@ -1,0 +1,4 @@
+# Orchestration log (append-only)
+
+- **Phase 0** — approved in 1 round (0 fix rounds). Notable: Astro is now v7.1.3 (brief's "Astro 5" was stale; accepted); global Node 20.0.0 too old, pinned 22.22.2 via `.tool-versions`; reviewer agent lacks a Write tool so the Planner persists review files verbatim (setup mismatch, flagged to human); carried nit → trim non-latin Fontsource subsets in a later perf pass (Phase 4).
+- **Phase 1** — approved in 1 round (0 fix rounds). Notable: executor caught `file()` loader flat-JSON pitfall and solved it with the documented parser wrapper (entry id `data`); per-collection icon enums stricter than a shared enum; carried → ♡ decorations must be added component-side in Phase 2b (About); materials `file` path convention (`/materials/` vs config `public_folder: /uploads`) to reconcile in Phase 3; icon brand-glyph substitutions (tiktok→music-2, whatsapp→phone) escalated to human as visual tradeoff.
