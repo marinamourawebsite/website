@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+/* Design tokens — the ONLY place raw hex values may appear (SPEC §2). */
+@theme {
+  --color-bg: #f5f2ed;
+  --color-surface: #fcfbf8;
+  --color-sage: #8fa081;
+  --color-sage-dark: #76866a;
+  --color-ink: #2e2e2c;
+  --color-muted: #6e6e6a;
+  --color-line: #e4e0d7;
+
+  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+  --font-script: 'Allura', 'Segoe Script', cursive;
+  --font-sans:
+    'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
