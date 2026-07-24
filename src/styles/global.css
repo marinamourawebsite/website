@@ -16,6 +16,13 @@
     'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
+/* Global visible keyboard-focus floor (SPEC §5, CLAUDE.md rule 7).
+   Applies a consistent sage-dark ring to every focusable element. */
+:focus-visible {
+  outline: 2px solid var(--color-sage-dark);
+  outline-offset: 2px;
+}
+
 /* CSS-only smooth scroll for the hero chevron (SPEC §5). No client JS.
    Disabled when the user prefers reduced motion. */
 @media (prefers-reduced-motion: no-preference) {
