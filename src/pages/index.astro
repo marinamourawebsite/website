@@ -1,11 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import { getEntry } from 'astro:content';
 
-// Placeholder title/description — real copy arrives via content JSON in Phase 1.
-const title = 'Marina Moura';
-const description = 'Marina Moura';
+// Title/description sourced from content (no hardcoded copy). Full SEO/OG: Phase 4.
+const profile = (await getEntry('profile', 'data'))!.data;
+const title = `${profile.firstName} ${profile.lastName}`;
+const description = profile.bio;
 ---
 
 <Base title={title} description={description}>
-  <main></main>
+  <main class="mx-auto w-full max-w-[760px] px-5 pb-16 sm:px-6">
+    <Hero />
+  </main>
 </Base>

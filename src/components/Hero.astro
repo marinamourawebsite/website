@@ -1,0 +1,106 @@
+---
+// Hero — first section of the page (SPEC §3.1).
+// Two columns at >=640px (photo left, text right); stacked below, photo first.
+// All visible strings come from profile.json / social.json (CLAUDE.md rule 2).
+import { getEntry } from 'astro:content';
+import Icon from './Icon.astro';
+
+const profile = (await getEntry('profile', 'data'))!.data;
+const social = (await getEntry('social', 'data'))!.data;
+
+// Monogram: "M/M" -> two stacked glyphs with a rule; otherwise render as-is.
+const monogramParts = profile.monogram.includes('/')
+  ? profile.monogram.split('/').map((part) => part.trim())
+  : null;
+---
+
+<section
+  aria-label={`${profile.firstName} ${profile.lastName}`}
+  class="grid gap-8 pt-8 sm:grid-cols-[minmax(0,0.9fr)_1fr] sm:items-stretch sm:gap-10 sm:pt-12"
+>
+  <!-- Portrait (LCP image; blob radius, top-right heavily rounded) -->
+  <div class="order-first">
+    <img
+      src={profile.photo}
+      alt={profile.photoAlt}
+      width="560"
+      height="720"
+      loading="eager"
+      decoding="async"
+      class="h-full w-full rounded-tl-[2rem] rounded-tr-[7rem] rounded-br-[2rem] rounded-bl-[6rem] object-cover"
+    />
+  </div>
+
+  <!-- Text column -->
+  <div class="flex flex-col items-center justify-center gap-5 text-center">
+    <!-- Monogram badge -->
+    <div
+      class="flex h-16 w-16 flex-col items-center justify-center rounded-full border border-ink leading-none"
+    >
+      {
+        monogramParts ? (
+          <>
+            <span class="font-serif text-lg text-ink">{monogramParts[0]}</span>
+            <span class="my-1 w-6 border-t border-ink" aria-hidden="true" />
+            <span class="font-serif text-lg text-ink">{monogramParts[1]}</span>
+          </>
+        ) : (
+          <span class="font-serif text-lg text-ink">{profile.monogram}</span>
+        )
+      }
+    </div>
+
+    <!-- Name lockup: serif first name + script last name tucked under -->
+    <h1 class="leading-none">
+      <span
+        class="block font-serif text-6xl font-medium tracking-tight text-ink sm:text-7xl"
+        >{profile.firstName}</span
+      >
+      <span
+        class="-mt-6 block font-script text-5xl text-sage sm:-mt-8 sm:text-6xl"
+        >{profile.lastName}</span
+      >
+    </h1>
+
+    <hr class="w-full border-t border-line" />
+
+    <p class="text-xs uppercase tracking-[0.15em] text-ink sm:text-sm">
+      {profile.keywords}
+    </p>
+
+    <p class="max-w-sm text-muted">{profile.bio}</p>
+
+    <!-- Scroll hint + chevron (CSS-only smooth scroll to #servicos) -->
+    <div class="flex flex-col items-center gap-1">
+      <span class="font-script text-3xl text-sage sm:text-4xl">
+        {profile.scrollHint}
+      </span>
+      <a
+        href="#servicos"
+        aria-label={profile.scrollHint}
+        class="text-sage transition-transform hover:translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
+      >
+        <Icon name="chevron-down" size={28} />
+      </a>
+    </div>
+
+    <!-- Social pill bar -->
+    <div
+      class="inline-flex items-center gap-3 rounded-full border border-line bg-surface px-4 py-3 shadow-sm"
+    >
+      {
+        social.items.map((item) => (
+          <a
+            href={item.url}
+            aria-label={item.label}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
+          >
+            <Icon name={item.icon} size={20} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
