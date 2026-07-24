@@ -1,0 +1,48 @@
+---
+// Materials — "· MATERIAIS GRATUITOS ·" (SPEC §3.5).
+// 3 cards: image top, title + 2-line subtitle, sage-dark circular download button.
+// All copy from materials.json (rule 2).
+import { getEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import SectionLabel from './SectionLabel.astro';
+
+const materials = (await getEntry('materials', 'data'))!.data;
+---
+
+<section aria-label={materials.sectionLabel} class="mt-12 sm:mt-16">
+  <SectionLabel label={materials.sectionLabel} />
+
+  <ul class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+    {
+      materials.items.map((item) => (
+        <li class="flex flex-col overflow-hidden rounded-[18px] border border-line bg-surface shadow-sm">
+          <img
+            src={item.image}
+            alt={item.imageAlt}
+            width="400"
+            height="300"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <div class="flex flex-1 items-end justify-between gap-3 p-4">
+            <div class="min-w-0">
+              <p class="text-sm font-semibold uppercase tracking-[0.06em] text-ink">
+                {item.title}
+              </p>
+              <p class="text-xs leading-snug text-muted">{item.subtitle}</p>
+            </div>
+            <a
+              href={item.file}
+              download
+              aria-label={item.title}
+              class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage-dark text-surface transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
+            >
+              <Icon name="download" size={18} />
+            </a>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>

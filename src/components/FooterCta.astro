@@ -1,0 +1,24 @@
+---
+// FooterCta — "Vamos criar algo incrível juntos?" (SPEC §3.6).
+// Full-width sage-dark rounded bar: script text left, white pill button right.
+// All copy from cta.json (rule 2). Stacks centered below 640px.
+import { getEntry } from 'astro:content';
+import Icon from './Icon.astro';
+
+const cta = (await getEntry('cta', 'data'))!.data;
+---
+
+<footer
+  class="mt-12 flex flex-col items-center justify-between gap-5 rounded-[26px] bg-sage-dark px-6 py-6 text-center sm:mt-16 sm:flex-row sm:gap-6 sm:px-8 sm:text-left"
+>
+  <p class="font-script text-3xl text-surface sm:text-4xl">{cta.text}</p>
+  <a
+    href={cta.buttonUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-flex shrink-0 items-center gap-2 rounded-full bg-surface px-5 py-2.5 text-xs font-medium uppercase tracking-[0.12em] text-ink shadow-sm transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-surface"
+  >
+    {cta.buttonLabel}
+    <Icon name="arrow-right" size={16} />
+  </a>
+</footer>
