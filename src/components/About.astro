@@ -1,0 +1,55 @@
+---
+// About — "um pouco sobre mim ♡" (SPEC §3.3).
+// One large rounded card, 3 zones (photo / heading+checklist / divided sideNote).
+// All copy from about.json (rule 2); heart + check glyphs are decoration.
+import { getEntry } from 'astro:content';
+import Icon from './Icon.astro';
+
+const about = (await getEntry('about', 'data'))!.data;
+---
+
+<section
+  aria-label={about.heading}
+  class="mt-12 flex flex-col gap-6 rounded-[22px] border border-line bg-surface p-5 sm:mt-16 sm:flex-row sm:items-stretch sm:gap-7 sm:p-6"
+>
+  <!-- Zone 1: portrait -->
+  <img
+    src={about.photo}
+    alt={about.photoAlt}
+    width="360"
+    height="360"
+    loading="lazy"
+    decoding="async"
+    class="w-full shrink-0 rounded-[16px] object-cover sm:h-auto sm:w-44 md:w-52"
+  />
+
+  <!-- Zone 2: heading + checklist -->
+  <div class="flex flex-1 flex-col justify-center gap-4">
+    <p class="flex items-center gap-2 font-script text-3xl text-sage sm:text-4xl">
+      {about.heading}
+      <Icon name="heart" size={20} class="text-sage" />
+    </p>
+    <ul class="flex flex-col gap-2.5">
+      {
+        about.bullets.map((bullet) => (
+          <li class="flex items-start gap-2.5 text-sm text-ink">
+            <span class="mt-0.5 shrink-0 text-sage" aria-hidden="true">
+              <Icon name="check" size={18} />
+            </span>
+            <span class="leading-snug">{bullet}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Zone 3: divider + sideNote (vertical rule on desktop, horizontal on mobile) -->
+  <div
+    class="flex flex-col items-center justify-center gap-3 border-t border-line pt-6 text-center sm:w-40 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6 md:w-48"
+  >
+    <span class="text-sage" aria-hidden="true">
+      <Icon name="heart" size={22} />
+    </span>
+    <p class="text-sm leading-snug text-muted">{about.sideNote}</p>
+  </div>
+</section>

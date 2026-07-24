@@ -1,0 +1,40 @@
+---
+// Services — "· COMO POSSO TE AJUDAR ·" (SPEC §3.2).
+// Vertical stack of 5 whole-card links. All copy from services.json (rule 2).
+// The #servicos id is the smooth-scroll target of the Hero chevron.
+import { getEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import SectionLabel from './SectionLabel.astro';
+
+const services = (await getEntry('services', 'data'))!.data;
+---
+
+<section id="servicos" aria-label={services.sectionLabel} class="pt-12 sm:pt-16">
+  <SectionLabel label={services.sectionLabel} />
+
+  <ul class="mt-6 flex flex-col gap-4">
+    {
+      services.items.map((item) => (
+        <li>
+          <a
+            href={item.url}
+            class="flex items-center gap-4 rounded-[18px] border border-line bg-surface p-4 shadow-sm transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage sm:gap-5 sm:p-5"
+          >
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sage text-surface sm:h-14 sm:w-14">
+              <Icon name={item.icon} size={24} />
+            </span>
+            <span class="flex min-w-0 flex-col gap-1">
+              <span class="text-sm font-semibold uppercase tracking-[0.08em] text-ink">
+                {item.title}
+              </span>
+              <span class="text-sm leading-snug text-muted">{item.description}</span>
+            </span>
+            <span class="ml-auto shrink-0 text-muted" aria-hidden="true">
+              <Icon name="chevron-right" size={20} />
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

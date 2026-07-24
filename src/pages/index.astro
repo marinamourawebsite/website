@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import About from '../components/About.astro';
 import { getEntry } from 'astro:content';
 
 // Title/description sourced from content (no hardcoded copy). Full SEO/OG: Phase 4.
@@ -12,5 +14,7 @@ const description = profile.bio;
 <Base title={title} description={description}>
   <main class="mx-auto w-full max-w-[760px] px-5 pb-16 sm:px-6">
     <Hero />
+    <Services />
+    <About />
   </main>
 </Base>
