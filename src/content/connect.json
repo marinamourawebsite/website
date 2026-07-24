@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "icon": "instagram", "label": "INSTAGRAM", "url": "https://instagram.com/TODO" },
+    { "icon": "tiktok", "label": "TIKTOK", "url": "https://tiktok.com/@TODO" },
+    { "icon": "folder", "label": "PORTFÓLIO", "url": "https://TODO.example.com" },
+    { "icon": "whatsapp", "label": "WHATSAPP", "url": "https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%20Marina" },
+    { "icon": "mail", "label": "E-MAIL", "url": "mailto:TODO@example.com" }
+  ]
+}

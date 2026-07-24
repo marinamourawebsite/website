@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "icon": "instagram", "label": "Instagram", "url": "https://instagram.com/TODO" },
+    { "icon": "tiktok", "label": "TikTok", "url": "https://tiktok.com/@TODO" },
+    { "icon": "linkedin", "label": "LinkedIn", "url": "https://linkedin.com/in/TODO" },
+    { "icon": "whatsapp", "label": "WhatsApp", "url": "https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%20Marina" }
+  ]
+}

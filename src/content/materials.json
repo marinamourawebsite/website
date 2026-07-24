@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "image": "/uploads/material-checklist.svg",
+      "imageAlt": "Celular sobre uma mesa clara",
+      "title": "CHECKLIST",
+      "subtitle": "para produzir melhores Reels",
+      "file": "/materials/checklist.pdf"
+    },
+    {
+      "image": "/uploads/material-ferramentas.svg",
+      "imageAlt": "Mesa de trabalho com planta e vela",
+      "title": "MINHAS",
+      "subtitle": "ferramentas favoritas",
+      "file": "/materials/ferramentas.pdf"
+    },
+    {
+      "image": "/uploads/material-apps.svg",
+      "imageAlt": "Celular com aplicativo de edição aberto",
+      "title": "APPS QUE USO",
+      "subtitle": "para editar meus vídeos",
+      "file": "/materials/apps.pdf"
+    }
+  ]
+}

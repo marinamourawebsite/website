@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "icon": "video",
+      "title": "PRODUÇÃO DE CONTEÚDO",
+      "description": "Criação de conteúdo autêntico para redes sociais, marcas e experiências.",
+      "url": "https://wa.me/55XXXXXXXXXXX?text=Quero%20saber%20sobre%20produ%C3%A7%C3%A3o%20de%20conte%C3%BAdo"
+    },
+    {
+      "icon": "smartphone",
+      "title": "ESTRATÉGIA PARA INSTAGRAM",
+      "description": "Planejamento, posicionamento e conteúdo com personalidade.",
+      "url": "https://wa.me/55XXXXXXXXXXX?text=Quero%20saber%20sobre%20estrat%C3%A9gia%20para%20Instagram"
+    },
+    {
+      "icon": "ticket",
+      "title": "COBERTURA DE EVENTOS",
+      "description": "Registro de eventos, bastidores e experiências que geram conexão e lembrança.",
+      "url": "https://wa.me/55XXXXXXXXXXX?text=Quero%20saber%20sobre%20cobertura%20de%20eventos"
+    },
+    {
+      "icon": "handshake",
+      "title": "PARCERIAS COM MARCAS",
+      "description": "Vamos criar algo que faça sentido para sua marca e para minha audiência.",
+      "url": "https://wa.me/55XXXXXXXXXXX?text=Quero%20saber%20sobre%20parcerias%20com%20marcas"
+    },
+    {
+      "icon": "lightbulb",
+      "title": "MENTORIAS",
+      "description": "Para quem quer começar a produzir conteúdo de forma leve e estratégica.",
+      "url": "https://wa.me/55XXXXXXXXXXX?text=Quero%20saber%20sobre%20mentorias"
+    }
+  ]
+}
