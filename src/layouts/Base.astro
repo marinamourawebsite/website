@@ -1,13 +1,22 @@
 ---
-// Self-hosted fonts (Fontsource) — only the weights used by the design.
-import '@fontsource/cormorant-garamond/500.css';
-import '@fontsource/cormorant-garamond/600.css';
-import '@fontsource/allura/400.css';
-import '@fontsource/poppins/400.css';
-import '@fontsource/poppins/500.css';
-import '@fontsource/poppins/600.css';
+// Self-hosted fonts (Fontsource) — only the weights used by the design,
+// subset-scoped to latin + latin-ext (covers pt-BR diacritics: ã õ ç é ê í ó ú à).
+// Dropping the aggregate imports avoids shipping cyrillic/vietnamese woff2.
+import '@fontsource/cormorant-garamond/latin-500.css';
+import '@fontsource/cormorant-garamond/latin-ext-500.css';
+import '@fontsource/cormorant-garamond/latin-600.css';
+import '@fontsource/cormorant-garamond/latin-ext-600.css';
+import '@fontsource/allura/latin-400.css';
+import '@fontsource/allura/latin-ext-400.css';
+import '@fontsource/poppins/latin-400.css';
+import '@fontsource/poppins/latin-ext-400.css';
+import '@fontsource/poppins/latin-500.css';
+import '@fontsource/poppins/latin-ext-500.css';
+import '@fontsource/poppins/latin-600.css';
+import '@fontsource/poppins/latin-ext-600.css';
 
 import '../styles/global.css';
+import { getEntry } from 'astro:content';
 
 interface Props {
   title: string;
@@ -15,6 +24,13 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+// OG image derives from the hero portrait (SPEC §5). No hardcoded copy.
+const profile = (await getEntry('profile', 'data'))!.data;
+
+// Canonical + absolute OG URLs derive from Astro.site (astro.config.mjs).
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(profile.photo, Astro.site).href;
 ---
 
 <!doctype html>
@@ -24,6 +40,30 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!--
+      Analytics slot — Cloudflare Web Analytics (SPEC §5).
+      Commented out by default; must NOT render. Uncomment and add the real token.
+      TODO(Leo): token
+      <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "REPLACE_WITH_TOKEN"}'></script>
+    -->
   </head>
   <body class="bg-bg text-ink font-sans">
     <slot />
