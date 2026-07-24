@@ -20,7 +20,7 @@ const about = (await getEntry('about', 'data'))!.data;
     height="360"
     loading="lazy"
     decoding="async"
-    class="w-full shrink-0 rounded-[16px] object-cover sm:h-auto sm:w-44 md:w-52"
+    class="w-full shrink-0 rounded-[16px] object-cover sm:h-auto sm:w-40 md:w-44"
   />
 
   <!-- Zone 2: heading + checklist -->
@@ -45,7 +45,7 @@ const about = (await getEntry('about', 'data'))!.data;
 
   <!-- Zone 3: divider + sideNote (vertical rule on desktop, horizontal on mobile) -->
   <div
-    class="flex flex-col items-center justify-center gap-3 border-t border-line pt-6 text-center sm:w-40 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6 md:w-48"
+    class="flex flex-col items-center justify-center gap-3 border-t border-line pt-6 text-center sm:w-28 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6 md:w-36"
   >
     <span class="text-sage" aria-hidden="true">
       <Icon name="heart" size={22} />
