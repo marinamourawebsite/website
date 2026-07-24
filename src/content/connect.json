@@ -1,4 +1,5 @@
 {
+  "sectionLabel": "VAMOS NOS CONECTAR",
   "items": [
     { "icon": "instagram", "label": "INSTAGRAM", "url": "https://instagram.com/TODO" },
     { "icon": "tiktok", "label": "TIKTOK", "url": "https://tiktok.com/@TODO" },

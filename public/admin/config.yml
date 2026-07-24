@@ -49,6 +49,7 @@ collections:
         label: Como posso te ajudar
         file: src/content/services.json
         fields:
+          - { name: sectionLabel, label: Rótulo da seção, widget: string, default: COMO POSSO TE AJUDAR }
           - name: items
             label: Serviços
             widget: list
@@ -76,6 +77,7 @@ collections:
         label: Vamos nos conectar
         file: src/content/connect.json
         fields:
+          - { name: sectionLabel, label: Rótulo da seção, widget: string, default: VAMOS NOS CONECTAR }
           - name: items
             label: Cards
             widget: list
@@ -90,6 +92,7 @@ collections:
         label: Materiais gratuitos
         file: src/content/materials.json
         fields:
+          - { name: sectionLabel, label: Rótulo da seção, widget: string, default: MATERIAIS GRATUITOS }
           - name: items
             label: Materiais
             widget: list

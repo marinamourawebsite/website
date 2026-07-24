@@ -44,6 +44,7 @@ const social = defineCollection({
 const services = defineCollection({
   loader: singleton('src/content/services.json'),
   schema: z.object({
+    sectionLabel: z.string(),
     items: z.array(
       z.object({
         icon: serviceIcon,
@@ -69,6 +70,7 @@ const about = defineCollection({
 const connect = defineCollection({
   loader: singleton('src/content/connect.json'),
   schema: z.object({
+    sectionLabel: z.string(),
     items: z.array(
       z.object({
         icon: connectIcon,
@@ -82,6 +84,7 @@ const connect = defineCollection({
 const materials = defineCollection({
   loader: singleton('src/content/materials.json'),
   schema: z.object({
+    sectionLabel: z.string(),
     items: z.array(
       z.object({
         image: z.string(),
