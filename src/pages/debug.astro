@@ -1,0 +1,146 @@
+---
+// TEMPORARY debug page — scaffolding for Phase 1 verification only.
+// Renders every field of all 7 content singletons plus all 11 whitelisted icons.
+// Exempt from the no-hardcoded-copy rule (labels are developer-facing).
+// PLANNED DELETION: Phase 2c.
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+
+const profile = (await getEntry('profile', 'data'))!.data;
+const social = (await getEntry('social', 'data'))!.data;
+const services = (await getEntry('services', 'data'))!.data;
+const about = (await getEntry('about', 'data'))!.data;
+const connect = (await getEntry('connect', 'data'))!.data;
+const materials = (await getEntry('materials', 'data'))!.data;
+const cta = (await getEntry('cta', 'data'))!.data;
+
+const iconWhitelist = [
+  'instagram',
+  'tiktok',
+  'linkedin',
+  'whatsapp',
+  'mail',
+  'video',
+  'smartphone',
+  'ticket',
+  'handshake',
+  'lightbulb',
+  'folder',
+];
+---
+
+<Base title="DEBUG — content layer" description="Phase 1 verification page (temporary)">
+  <main style="max-width: 800px; margin: 0 auto; padding: 2rem; font-family: monospace;">
+    <h1>DEBUG — content layer</h1>
+    <p>Temporary Phase 1 verification page. Deleted in Phase 2c.</p>
+
+    <section>
+      <h2>Icon whitelist ({iconWhitelist.length})</h2>
+      <ul style="list-style: none; padding: 0;">
+        {
+          iconWhitelist.map((name) => (
+            <li style="display: inline-flex; align-items: center; gap: 0.5rem; width: 12rem; margin: 0.25rem 0;">
+              <Icon name={name} /> <code>{name}</code>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section>
+      <h2>profile.json</h2>
+      <dl>
+        <dt>firstName</dt><dd>{profile.firstName}</dd>
+        <dt>lastName</dt><dd>{profile.lastName}</dd>
+        <dt>monogram</dt><dd>{profile.monogram}</dd>
+        <dt>keywords</dt><dd>{profile.keywords}</dd>
+        <dt>bio</dt><dd>{profile.bio}</dd>
+        <dt>scrollHint</dt><dd>{profile.scrollHint}</dd>
+        <dt>photo</dt><dd>{profile.photo}</dd>
+        <dt>photoAlt</dt><dd>{profile.photoAlt}</dd>
+      </dl>
+      <img src={profile.photo} alt={profile.photoAlt} width="120" />
+    </section>
+
+    <section>
+      <h2>social.json</h2>
+      <ol>
+        {
+          social.items.map((it) => (
+            <li>
+              <code>{it.icon}</code> — {it.label} — {it.url}
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section>
+      <h2>services.json</h2>
+      <ol>
+        {
+          services.items.map((it) => (
+            <li>
+              <code>{it.icon}</code> — <strong>{it.title}</strong> — {it.description} — {it.url}
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section>
+      <h2>about.json</h2>
+      <dl>
+        <dt>heading</dt><dd>{about.heading}</dd>
+        <dt>photo</dt><dd>{about.photo}</dd>
+        <dt>photoAlt</dt><dd>{about.photoAlt}</dd>
+        <dt>sideNote</dt><dd>{about.sideNote}</dd>
+      </dl>
+      <p>bullets:</p>
+      <ul>
+        {about.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+      <img src={about.photo} alt={about.photoAlt} width="120" />
+    </section>
+
+    <section>
+      <h2>connect.json</h2>
+      <ol>
+        {
+          connect.items.map((it) => (
+            <li>
+              <code>{it.icon}</code> — {it.label} — {it.url}
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section>
+      <h2>materials.json</h2>
+      <ol>
+        {
+          materials.items.map((it) => (
+            <li>
+              <strong>{it.title}</strong> — {it.subtitle} — {it.file}
+              <br />
+              <code>{it.image}</code> — {it.imageAlt}
+              <br />
+              <img src={it.image} alt={it.imageAlt} width="120" />
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section>
+      <h2>cta.json</h2>
+      <dl>
+        <dt>text</dt><dd>{cta.text}</dd>
+        <dt>buttonLabel</dt><dd>{cta.buttonLabel}</dd>
+        <dt>buttonUrl</dt><dd>{cta.buttonUrl}</dd>
+      </dl>
+    </section>
+  </main>
+</Base>
