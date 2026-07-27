@@ -48,6 +48,10 @@ Same content as before, now as dispatch units:
 | 2c | Components: Connect, Materials, FooterCta + assemble index.astro | Full page matches reference top to bottom |
 | 3 | Sveltia: public/admin/ (index.html + config.yml from kit), local workflow test | Editing JSON via local CMS UI + rebuild updates the page |
 | 4 | Quality: SEO head, a11y sweep, Lighthouse ≥ 95 mobile, TODO report | All criteria met; final TODO list in docs/phases/LOG.md |
+| 5 | Post-delivery: real brand glyphs for social icons (resolves handoff TODO 13) | Instagram/TikTok/LinkedIn/WhatsApp render real brand marks matching the reference's mixed fill treatment |
+
+Phase 5 was added after delivery, at the human's request. Post-delivery adjustments follow the
+same brief → execute → review → gate loop; they do not bypass it.
 
 Phase 2 was split into 2a/2b/2c deliberately — smaller dispatch units make the orchestration experiment more observable (more briefs, reports and reviews to compare).
 
