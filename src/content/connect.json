@@ -1,10 +1,10 @@
 {
   "sectionLabel": "VAMOS NOS CONECTAR",
   "items": [
-    { "icon": "instagram", "label": "INSTAGRAM", "url": "https://instagram.com/TODO" },
-    { "icon": "tiktok", "label": "TIKTOK", "url": "https://tiktok.com/@TODO" },
+    { "icon": "instagram", "label": "INSTAGRAM", "url": "https://www.instagram.com/amarinamoura" },
+    { "icon": "tiktok", "label": "TIKTOK", "url": "https://www.tiktok.com/@amarinamoura" },
     { "icon": "folder", "label": "PORTFÓLIO", "url": "https://TODO.example.com" },
-    { "icon": "whatsapp", "label": "WHATSAPP", "url": "https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%20Marina" },
-    { "icon": "mail", "label": "E-MAIL", "url": "mailto:TODO@example.com" }
+    { "icon": "whatsapp", "label": "WHATSAPP", "url": "https://wa.me/5561982047955?text=Ol%C3%A1%20Marina" },
+    { "icon": "mail", "label": "E-MAIL", "url": "mailto:marinamourabrasil@gmail.com" }
   ]
 }

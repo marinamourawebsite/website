@@ -1,8 +1,8 @@
 {
   "items": [
-    { "icon": "instagram", "label": "Instagram", "url": "https://instagram.com/TODO" },
-    { "icon": "tiktok", "label": "TikTok", "url": "https://tiktok.com/@TODO" },
-    { "icon": "linkedin", "label": "LinkedIn", "url": "https://linkedin.com/in/TODO" },
-    { "icon": "whatsapp", "label": "WhatsApp", "url": "https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%20Marina" }
+    { "icon": "instagram", "label": "Instagram", "url": "https://www.instagram.com/amarinamoura" },
+    { "icon": "tiktok", "label": "TikTok", "url": "https://www.tiktok.com/@amarinamoura" },
+    { "icon": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/in/amarinamoura/" },
+    { "icon": "whatsapp", "label": "WhatsApp", "url": "https://wa.me/5561982047955?text=Ol%C3%A1%20Marina" }
   ]
 }
