@@ -25,3 +25,24 @@
 12. **Lighthouse re-check post-launch** — Planner's local run passed (98/95/100/100 mobile); re-run once deployed with real assets.
 13. **Icon fidelity decision** — TikTok/WhatsApp render as lucide `music-2`/`phone` stand-ins (lucide has no brand glyphs); accept, or approve adding real brand SVGs to `Icon.astro`.
 14. **Focus-ring unification** — optional cleanup: drop per-component `outline-sage` utilities so all focus rings use the global `sage-dark` floor.
+
+## Status 2026-08-04 (session close)
+
+Progress against the list above, so the next session doesn't re-derive it:
+
+- **DONE — items 2, 3, 4.** Real contact data filled in commit `a05b647`: WhatsApp `5561982047955`
+  across all 8 links, `marinamourabrasil@gmail.com`, and Instagram / TikTok / LinkedIn (all
+  `@amarinamoura`). TikTok share-link tracking params were stripped (they expire). This knowingly
+  overrides CLAUDE.md rule 8 — at launch stage that data is the site's public content, and the human
+  supplied it for exactly that purpose.
+- **DONE — item 13.** Resolved by Phase 5; TikTok/LinkedIn/WhatsApp now use real brand marks.
+- **PARTIAL — item 4.** Portfolio URL is the only remaining `TODO` in content
+  (`connect.json`, PORTFÓLIO card → `https://TODO.example.com`). Human has not decided between
+  supplying a URL, repointing it, or dropping the card (the row reflows fine at 4 cards).
+- **OPEN, unchanged** — items 1, 5, 6, 7, 8, 9, 10, 11, 12, 14. Nothing pushed anywhere; the repo
+  still has no git remote.
+- **Carried from the phase-5 review** — `Icon.astro`'s header comment claims LinkedIn is the only
+  brand glyph with modified geometry, but the WhatsApp glyph also had its outer-bubble subpath
+  removed. Comment-only fix, agreed with the human, not yet applied.
+- **Recommended next move** (proposed, not decided): deploy with placeholders first so `/admin`
+  goes live and Marina fills her own content, instead of blocking on assets.
