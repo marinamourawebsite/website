@@ -48,6 +48,26 @@ design/reference.png        # source of truth for visuals
 9. Conventional commits (`feat:`, `fix:`, `chore:`), one logical change per commit.
 10. After each phase in `PLAN.md`, run `npm run build` and confirm zero errors before moving on.
 
+## Images
+
+- **Every image in `public/uploads/` is webp.** Two kinds, and they are not interchangeable:
+  - **Library:** `marina-moura-01.webp` … `-NN.webp`, 1400px long edge, quality 75, chronological by
+    EXIF capture date. This is what Marina browses in the Sveltia media picker, so it lives in the
+    `media_folder` root, not a subfolder.
+  - **Slots:** purpose-named (`profile.webp`, `about.webp`, `material-checklist.webp`,
+    `material-ferramentas.webp`, `material-apps.webp`), cropped to the exact ratio the component
+    declares (hero 1120x1440, about 640x640, materials 800x600). The `src/content/*.json` paths
+    point at these names and stay stable when the underlying photo is swapped.
+- `docs/image-manifest.tsv` maps each library number back to its original camera filename. Update it
+  whenever the library changes.
+- **Never leave originals (or any large source asset) under `public/`.** Everything there is copied
+  verbatim into `dist/` and shipped to Cloudflare Pages. Marina's originals live in
+  `/Users/leoad/superPasta/leo/marina-moura-originais`, outside the repo.
+- Tooling on this machine: no ImageMagick. `sips` decodes HEIC and reads capture dates, `cwebp`
+  encodes and is the only one that can crop at an offset. **`sips` does not reliably apply EXIF
+  rotation** — check every output visually, never infer rotation from the metadata.
+- Strip metadata on every encode (`-metadata none`); phone photos carry GPS coordinates.
+
 ## Multi-agent orchestration
 
 This repo is executed by a planner/executor/reviewer setup (see PLAN.md "Roles" and "Orchestration loop").

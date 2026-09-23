@@ -2,22 +2,22 @@
   "sectionLabel": "MATERIAIS GRATUITOS",
   "items": [
     {
-      "image": "/uploads/material-checklist.svg",
-      "imageAlt": "Celular sobre uma mesa clara",
+      "image": "/uploads/material-checklist.webp",
+      "imageAlt": "Marina Moura de vestido vermelho caminhando por um cerimonial",
       "title": "CHECKLIST",
       "subtitle": "para produzir melhores Reels",
       "file": "/materials/checklist.pdf"
     },
     {
-      "image": "/uploads/material-ferramentas.svg",
-      "imageAlt": "Mesa de trabalho com planta e vela",
+      "image": "/uploads/material-ferramentas.webp",
+      "imageAlt": "Marina Moura de braços erguidos em um trio elétrico, com o público ao fundo",
       "title": "MINHAS",
       "subtitle": "ferramentas favoritas",
       "file": "/materials/ferramentas.pdf"
     },
     {
-      "image": "/uploads/material-apps.svg",
-      "imageAlt": "Celular com aplicativo de edição aberto",
+      "image": "/uploads/material-apps.webp",
+      "imageAlt": "Marina Moura agachada nos bastidores de um show, olhando para o celular",
       "title": "APPS QUE USO",
       "subtitle": "para editar meus vídeos",
       "file": "/materials/apps.pdf"
