@@ -12,7 +12,11 @@ const connect = (await getEntry('connect', 'data'))!.data;
 const external = (url: string) => !url.startsWith('mailto:');
 ---
 
-<section aria-label={connect.sectionLabel} class="mt-12 sm:mt-16">
+<section
+  id="conectar"
+  aria-label={connect.sectionLabel}
+  class="mt-12 scroll-mt-8 sm:mt-16"
+>
   <SectionLabel label={connect.sectionLabel} />
 
   <ul class="mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">

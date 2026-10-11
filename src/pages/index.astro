@@ -12,15 +12,38 @@ import { getEntry } from 'astro:content';
 const profile = (await getEntry('profile', 'data'))!.data;
 const title = `${profile.firstName} ${profile.lastName}`;
 const description = profile.bio;
+
+// Orderable middle sections: component + anchor id (must match the id on the component).
+// Hero stays first and FooterCta last; neither is part of page.json.
+const registry = {
+  services: { component: Services, anchor: 'servicos' },
+  about: { component: About, anchor: 'sobre' },
+  connect: { component: Connect, anchor: 'conectar' },
+  materials: { component: Materials, anchor: 'materiais' },
+} as const;
+const footerAnchor = 'contato';
+
+// Resolve order and visibility from page.json, tolerating CMS bad data:
+// duplicate ids keep the first occurrence; ids absent from the list stay hidden.
+const page = (await getEntry('page', 'data'))!.data;
+const seen = new Set<string>();
+const visibleSections = page.sections
+  .filter(({ section }) => {
+    if (seen.has(section)) return false;
+    seen.add(section);
+    return true;
+  })
+  .filter(({ visible }) => visible)
+  .map(({ section }) => registry[section]);
+
+// Hero chevron scrolls to the first visible section, or to the footer CTA if none.
+const scrollTarget = `#${visibleSections[0]?.anchor ?? footerAnchor}`;
 ---
 
 <Base title={title} description={description}>
   <main class="mx-auto w-full max-w-[760px] px-5 pb-16 sm:px-6">
-    <Hero />
-    <Services />
-    <About />
-    <Connect />
-    <Materials />
+    <Hero scrollTarget={scrollTarget} />
+    {visibleSections.map(({ component: Section }) => <Section />)}
     <FooterCta />
   </main>
 </Base>

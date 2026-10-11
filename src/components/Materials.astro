@@ -9,7 +9,11 @@ import SectionLabel from './SectionLabel.astro';
 const materials = (await getEntry('materials', 'data'))!.data;
 ---
 
-<section aria-label={materials.sectionLabel} class="mt-12 sm:mt-16">
+<section
+  id="materiais"
+  aria-label={materials.sectionLabel}
+  class="mt-12 scroll-mt-8 sm:mt-16"
+>
   <SectionLabel label={materials.sectionLabel} />
 
   <ul class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">

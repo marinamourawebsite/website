@@ -9,8 +9,9 @@ const about = (await getEntry('about', 'data'))!.data;
 ---
 
 <section
+  id="sobre"
   aria-label={about.heading}
-  class="mt-12 flex flex-col gap-6 rounded-[22px] border border-line bg-surface p-5 sm:mt-16 sm:flex-row sm:items-stretch sm:gap-7 sm:p-6"
+  class="mt-12 scroll-mt-8 flex flex-col gap-6 rounded-[22px] border border-line bg-surface p-5 sm:mt-16 sm:flex-row sm:items-stretch sm:gap-7 sm:p-6"
 >
   <!-- Zone 1: portrait -->
   <img

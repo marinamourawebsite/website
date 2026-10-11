@@ -5,6 +5,12 @@
 import { getEntry } from 'astro:content';
 import Icon from './Icon.astro';
 
+interface Props {
+  // Anchor of the first visible section below the hero (resolved in index.astro).
+  scrollTarget: string;
+}
+const { scrollTarget } = Astro.props;
+
 const profile = (await getEntry('profile', 'data'))!.data;
 const social = (await getEntry('social', 'data'))!.data;
 
@@ -71,9 +77,9 @@ const monogramParts = profile.monogram.includes('/')
     <p class="max-w-sm text-muted">{profile.bio}</p>
 
     <!-- Scroll hint: single link wrapping text + chevron (CSS-only smooth
-         scroll to #servicos). One link = one announcement + larger tap target. -->
+         scroll to the first visible section). One link = one announcement + larger tap target. -->
     <a
-      href="#servicos"
+      href={scrollTarget}
       class="flex flex-col items-center gap-1 text-sage transition-transform hover:translate-y-0.5"
     >
       <span class="font-script text-3xl text-sage sm:text-4xl">
