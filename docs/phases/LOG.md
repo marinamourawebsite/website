@@ -46,3 +46,16 @@ Progress against the list above, so the next session doesn't re-derive it:
   removed. Comment-only fix, agreed with the human, not yet applied.
 - **Recommended next move** (proposed, not decided): deploy with placeholders first so `/admin`
   goes live and Marina fills her own content, instead of blocking on assets.
+
+## Launch track (2026-10-10)
+
+- **Process change, human-approved.** Remaining launch work is config, accounts and client assets
+  (domain, CMS backend, Cloudflare Pages, OAuth App, PDFs), none of it in `src/`. The Planner
+  handles it directly with the human, outside the brief → execute → review loop, to avoid
+  ceremony on non-code steps. Any change that touches `src/` still goes through the loop.
+- **Config, done by Planner.** Domain is `amarinamoura.com.br` (already on Cloudflare, awaiting
+  registro.br DNS propagation): set in `astro.config.mjs` `site` and `config.yml` `site_url`.
+  `config.yml` `repo` set to `marinamourawebsite/website`. `base_url` stays TODO until the
+  sveltia-cms-auth Worker is deployed.
+- **Phase 6 opened** (human request): CMS control over section visibility and order. Footer CTA
+  stays locked at the end by human decision.
