@@ -1,0 +1,8 @@
+{
+  "sections": [
+    { "section": "services", "visible": true },
+    { "section": "about", "visible": true },
+    { "section": "connect", "visible": true },
+    { "section": "materials", "visible": true }
+  ]
+}

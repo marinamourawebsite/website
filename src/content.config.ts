@@ -14,6 +14,22 @@ const connectIcon = z.enum(['instagram', 'tiktok', 'folder', 'whatsapp', 'mail',
 const singleton = (path: string) =>
   file(path, { parser: (text: string) => ({ data: JSON.parse(text) }) });
 
+// Page layout: order and visibility of the middle sections. Hero and Footer CTA
+// are fixed (first and last) and intentionally not part of this list.
+const orderableSection = z.enum(['services', 'about', 'connect', 'materials']);
+
+const page = defineCollection({
+  loader: singleton('src/content/page.json'),
+  schema: z.object({
+    sections: z.array(
+      z.object({
+        section: orderableSection,
+        visible: z.boolean(),
+      }),
+    ),
+  }),
+});
+
 const profile = defineCollection({
   loader: singleton('src/content/profile.json'),
   schema: z.object({
@@ -106,4 +122,4 @@ const cta = defineCollection({
   }),
 });
 
-export const collections = { profile, social, services, about, connect, materials, cta };
+export const collections = { page, profile, social, services, about, connect, materials, cta };

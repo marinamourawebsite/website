@@ -18,6 +18,33 @@ collections:
   - name: site
     label: Conteúdo do Site
     files:
+      # Order and visibility of the middle sections. The hero (profile) and the
+      # footer CTA are fixed and not listed. Rows are fixed: reorder only.
+      # min/max 4 back up allow_add/allow_remove in case either is ignored.
+      - name: page
+        label: Página
+        file: src/content/page.json
+        fields:
+          - name: sections
+            label: Seções (arraste para reordenar)
+            widget: list
+            allow_add: false
+            allow_remove: false
+            allow_reorder: true
+            collapsed: false
+            min: 4
+            max: 4
+            fields:
+              # Select with labeled options so Marina reads the pt-BR name, not the id.
+              # readonly stops her from switching a row to another section.
+              - { name: section, label: Seção, widget: select, readonly: true,
+                  options: [
+                    { label: Como posso te ajudar, value: services },
+                    { label: Um pouco sobre mim, value: about },
+                    { label: Vamos nos conectar, value: connect },
+                    { label: Materiais gratuitos, value: materials } ] }
+              - { name: visible, label: Mostrar na página, widget: boolean, default: true }
+
       - name: profile
         label: Perfil (topo da página)
         file: src/content/profile.json
