@@ -1,12 +1,11 @@
 # Sveltia CMS — public/admin/config.yml
 # Backend: GitHub via sveltia-cms-auth Worker on Cloudflare.
-# TODO(Leo): replace base_url once the sveltia-cms-auth Worker is deployed.
 
 backend:
   name: github
   repo: marinamourawebsite/website
   branch: main
-  base_url: https://sveltia-cms-auth.SUBDOMAIN.workers.dev # TODO
+  base_url: https://sveltia-cms-auth.marinamourawebsite.workers.dev
 
 media_folder: public/uploads
 public_folder: /uploads

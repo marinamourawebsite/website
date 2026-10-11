@@ -53,6 +53,7 @@ All content in JSON, one file per singleton/collection, under `src/content/`:
 
 ```
 src/content/
+  page.json         # singleton — sections: (section, visible)[] order + visibility of the 4 middle sections
   profile.json      # singleton — hero + monogram + bio + keywords
   social.json       # singleton — hero pill links (label, icon, url)[]
   services.json     # singleton — items: (icon, title, description, url)[]
